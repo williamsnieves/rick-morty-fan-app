@@ -1,11 +1,13 @@
 import React from "react";
 import styles from "../../styles/modal.module.css";
 
-const Modal = ({ children }) => {
+const Modal = ({ children, onClose }) => {
   return (
     <div className={styles.modal}>
       <div className={styles.modalContent}>
-        <span className={styles.modalClose}>&times;</span>
+        <span className={styles.modalClose} onClick={onClose}>
+          &times;
+        </span>
         {children}
       </div>
     </div>

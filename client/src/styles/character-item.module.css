@@ -6,6 +6,7 @@
   background-color: #46494c;
   border-radius: 0.5rem;
   box-shadow: #0000001a 0px 4px 6px -1px, #0000000f 0px 2px 4px -1px;
+  cursor: pointer;
 }
 
 .characterItemThumb {

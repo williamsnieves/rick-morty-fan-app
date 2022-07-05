@@ -1,63 +1,45 @@
-const express = require('express');
-const cors = require('cors')
-const fetch = require("node-fetch")
-const {ApolloServer, gql} = require('apollo-server-express')
+import express from 'express'
+import pkg from 'body-parser'
+import cors from 'cors'
+import fetch from 'node-fetch'
+import {firestore} from "./src/firebase.js"
+
+const {json, urlencoded} = pkg
 
 const RICK_MORTY_API_MAIN_URL = "https://rickandmortyapi.com/api"
 
+const collectIdsAndDocs = doc => ({id: doc.id, ...doc.data()})
+
 const port = 4000
 
-const typeDefs = gql`
-  type Location {
-    name: String
-  }
-  type Character {
-    id: ID,
-    name: String!
-    status: String,
-    species: String,
-    gender: String,
-    image: String,
-    location: Location,
-    episode: [String!]
-
-  }
-
-  type Query {
-    character: [Character]!
-  }
-`
-
-const resolvers = {
-  Query: {
-    async character() {
-
-      const character = await fetch(`${RICK_MORTY_API_MAIN_URL}/character`)
-      const characterJson = await character.json()
-      
-      return characterJson.results
-    }
-  }
-}
-
 async function startServer() {
-  //const app = express()
-  //app.use(cors())
-  //const apolloServer = new ApolloServer({
-    //typeDefs,
-    //resolvers
-  //})
-  
-  //await apolloServer.start()
-  //apolloServer.applyMiddleware({app: app})
-
   const app = express()
   app.use(cors())
+  app.use(json())
+  app.use(urlencoded({ extended: true }))
   app.get("/character", async (req, res) => {
     const character = await fetch(`${RICK_MORTY_API_MAIN_URL}/character`)
       const characterJson = await character.json()
 
-      res.send({data: characterJson.results})
+      res.json({data: characterJson.results})
+  })
+
+  app.get("/favorites", async (req, res) => {
+    const favoritesSnapshot = await firestore.collection('favorites').get()
+    res.send({data: favoritesSnapshot.docs.map(doc => ({id: doc.id, ...doc.data()}))})
+  })
+
+  app.post("/favorites", async (req, res) => {
+
+    const favoritesDocReference = await firestore.collection('favorites').add(req.body)
+
+    const doc = await favoritesDocReference.get(doc => ({id: doc.id, ...doc.data()}))
+
+    const newFavoriteCharacter = collectIdsAndDocs(doc)
+
+    res.json({
+      data: newFavoriteCharacter
+    })
   })
 
   app.listen(port, () => {
