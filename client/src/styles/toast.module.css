@@ -2,7 +2,6 @@
   background-color: #9ef01a;
   border: 1px solid #70e000;
   width: calc(100% - 34px);
-  max-width: 541px;
   height: 50px;
   display: flex;
   justify-content: space-between;
