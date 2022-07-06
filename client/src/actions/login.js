@@ -21,6 +21,7 @@ export const loginRickMortyFailure = (error) => {
 };
 
 export const loginRickMortySuccess = (user) => {
+  localStorage.setItem("userData", JSON.stringify(user));
   return {
     type: RICK_MORTY_LOGIN_SUCCESS,
     payload: {
