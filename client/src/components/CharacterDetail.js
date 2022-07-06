@@ -14,7 +14,6 @@ const CharacterDetail = ({
   addToFavorites,
   favoriteAddedSucceeded,
 }) => {
-  console.log("----favoriteAddedSucceeded", favoriteAddedSucceeded);
   return (
     <div>
       <div style={{ height: "220px" }}>
@@ -93,6 +92,7 @@ const CharacterDetail = ({
               name,
               status,
               species,
+              image,
               characterId: id,
             })
           }

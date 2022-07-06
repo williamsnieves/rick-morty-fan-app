@@ -3,6 +3,9 @@ import {
   RICK_MORTY_CHARACTER_FAVORITES_ADD_FAILURE,
   RICK_MORTY_CHARACTER_FAVORITES_ADD_SUCCESS,
   RICK_MORTY_CHARACTER_FAVORITES_RESET_ALERT,
+  RICK_MORTY_CHARACTER_FAVORITES_LOAD,
+  RICK_MORTY_CHARACTER_FAVORITES_LOAD_FAILURE,
+  RICK_MORTY_CHARACTER_FAVORITES_LOAD_SUCCESS,
 } from "../actionTypes/favorites";
 
 export const initialState = {
@@ -18,7 +21,6 @@ const FavoritesReducer = (state = initialState, action) => {
     case RICK_MORTY_CHARACTER_FAVORITES_ADD_SUCCESS:
       return {
         ...state,
-        data: payload.characters.data,
         succeeded: true,
         isLoading: false,
         error: null,
@@ -41,6 +43,26 @@ const FavoritesReducer = (state = initialState, action) => {
         ...state,
         succeeded: null,
       };
+    case RICK_MORTY_CHARACTER_FAVORITES_LOAD_SUCCESS:
+      return {
+        ...state,
+        data: payload.characters.data,
+        isLoading: false,
+        error: null,
+      };
+    case RICK_MORTY_CHARACTER_FAVORITES_LOAD_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    case RICK_MORTY_CHARACTER_FAVORITES_LOAD:
+      return {
+        ...state,
+        isLoading: true,
+        error: null,
+      };
+
     default:
       return state;
   }

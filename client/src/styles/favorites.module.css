@@ -1,0 +1,9 @@
+.favoritesContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 0fr);
+  grid-template-rows: auto;
+  gap: 3%;
+  justify-content: center;
+  align-content: center;
+  margin: 12rem;
+}

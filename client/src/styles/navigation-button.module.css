@@ -1,0 +1,23 @@
+.navigationButton {
+  background: #46494c;
+  color: #c5c3c6;
+  padding: 10px;
+  border-radius: 40px;
+  text-decoration: none;
+}
+
+.navigationButton:link {
+  text-decoration: none;
+}
+
+.navigationButton:visited {
+  text-decoration: none;
+}
+
+.navigationButton:hover {
+  text-decoration: none;
+}
+
+.navigationButton:active {
+  text-decoration: none;
+}

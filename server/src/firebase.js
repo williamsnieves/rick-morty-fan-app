@@ -1,5 +1,6 @@
 import firebase from "firebase/compat/app";
 import 'firebase/compat/firestore'
+import {getAuth, signInWithEmailAndPassword} from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: "AIzaSyAMA00L9OYPwyqGl3p5sSWLxuqtql3tle0",
@@ -13,6 +14,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export const firestore = firebase.firestore()
+export const auth = getAuth()
+export const loginWithEmailPassword = signInWithEmailAndPassword
 
 const settings = { timestampsInSnapshots: true }
 firestore.settings(settings)

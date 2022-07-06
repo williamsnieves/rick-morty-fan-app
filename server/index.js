@@ -2,7 +2,7 @@ import express from 'express'
 import pkg from 'body-parser'
 import cors from 'cors'
 import fetch from 'node-fetch'
-import {firestore} from "./src/firebase.js"
+import {firestore, loginWithEmailPassword, auth} from "./src/firebase.js"
 
 const {json, urlencoded} = pkg
 
@@ -40,6 +40,23 @@ async function startServer() {
     res.json({
       data: newFavoriteCharacter
     })
+  })
+
+  app.post("/login", async (req, res) => {
+
+    const {email, password} = req.body.formData
+
+    try {
+      const loginResult =  await loginWithEmailPassword(auth, email, password)
+      res.json({
+        data: loginResult.user
+      })
+    } catch (error) {
+      res.status(400).json({
+        error
+      })
+    }
+
   })
 
   app.listen(port, () => {
