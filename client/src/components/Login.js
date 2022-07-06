@@ -42,6 +42,7 @@ const Login = ({ login, user }) => {
           <div className={styles.inputContainer}>
             <div>
               <input
+                data-test-id="email"
                 className={styles.input}
                 type="email"
                 placeholder="Email"
@@ -52,6 +53,7 @@ const Login = ({ login, user }) => {
             </div>
             <div>
               <input
+                data-test-id="password"
                 className={styles.input}
                 type="password"
                 placeholder="password "
@@ -61,7 +63,11 @@ const Login = ({ login, user }) => {
               />
             </div>
           </div>
-          <button className={styles.loginButton} onClick={onHandleLogin}>
+          <button
+            data-test-id="login-button"
+            className={styles.loginButton}
+            onClick={onHandleLogin}
+          >
             Sign in
           </button>
         </form>

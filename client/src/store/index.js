@@ -13,7 +13,7 @@ const toolsEnhancer =
 const store = createStoreWithMiddleware(reducers);*/
 
 const middlewareEnhancer = applyMiddleware(reduxThunk);
-const composedEnhancers = compose(middlewareEnhancer, toolsEnhancer);
+const composedEnhancers = compose(middlewareEnhancer);
 
 const store = createStore(reducers, undefined, composedEnhancers);
 

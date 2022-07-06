@@ -66,7 +66,7 @@ const CharacterItem = ({
         className={styles.characterItem}
         onClick={openCharacterDetail}
       >
-        <Item {...{ image, name, species, status }} />
+        <Item {...{ image, name, species, status }} dataTestId={`item-${id}`} />
         <div className={styles.characterItemFavoriteIcon}>
           {isFavoriteCharacter ? (
             <img src={starFullIcon} width="20" height="20" alt="icon" />

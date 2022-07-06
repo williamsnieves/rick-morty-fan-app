@@ -1,6 +1,6 @@
 import styles from "../../styles/item.module.css";
 
-const Item = ({ image, name, status, species }) => {
+const Item = ({ image, name, status, species, dataTestId }) => {
   const statusIconClass = {
     alive: styles.itemStatusIconAlive,
     dead: styles.itemStatusIconDead,
@@ -9,7 +9,7 @@ const Item = ({ image, name, status, species }) => {
 
   return (
     <>
-      <div className={styles.item}>
+      <div className={styles.item} data-test-id={dataTestId}>
         <div>
           <img className={styles.itemThumb} src={image} alt={name} />
         </div>
