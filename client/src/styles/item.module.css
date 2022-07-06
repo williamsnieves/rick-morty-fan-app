@@ -1,9 +1,11 @@
+@import "./colors.module.css";
+
 .item {
   position: relative;
   width: 400px;
   height: 141px;
   display: flex;
-  background-color: #46494c;
+  background-color: var(--outer-space);
   border-radius: 0.5rem;
   box-shadow: #0000001a 0px 4px 6px -1px, #0000000f 0px 2px 4px -1px;
   cursor: pointer;
@@ -25,7 +27,7 @@
 }
 
 .itemInfo h2 {
-  color: #c5c3c6;
+  color: var(--silver-sand);
   margin-bottom: 0.5rem;
   text-align: left;
 }
@@ -38,7 +40,7 @@
 
 .itemStatusText {
   margin-left: 0.5rem;
-  color: #c5c3c6;
+  color: var(--silver-sand);
 }
 
 .itemStatusIcon {
@@ -47,13 +49,13 @@
   border-radius: 100%;
 }
 .itemStatusIconDead {
-  background-color: #d6542e;
+  background-color: var(--flame);
 }
 
 .itemStatusIconAlive {
-  background-color: #55cc44;
+  background-color: var(--apple);
 }
 
 .itemStatusIconUnknown {
-  background-color: #9e9e9e;
+  background-color: var(--spanish-gray);
 }

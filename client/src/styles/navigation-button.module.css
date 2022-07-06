@@ -1,6 +1,8 @@
+@import "./colors.module.css";
+
 .navigationButton {
-  background: #46494c;
-  color: #c5c3c6;
+  background: var(--outer-space);
+  color: var(--silver-sand);
   padding: 10px;
   border-radius: 40px;
   text-decoration: none;

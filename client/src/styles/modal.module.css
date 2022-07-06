@@ -1,3 +1,5 @@
+@import "./colors.module.css";
+
 .modal {
   position: fixed;
   z-index: 1;
@@ -12,17 +14,17 @@
 }
 
 .modalContent {
-  background-color: #46494c;
+  background-color: var(--outer-space);
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid var(--taupe-gray);
   width: 55%;
   position: relative;
   border-radius: 0.5rem;
 }
 
 .modalClose {
-  color: #aaaaaa;
+  color: var(--dark-gray);
   float: right;
   font-size: 28px;
   font-weight: bold;

@@ -1,3 +1,5 @@
+@import "./colors.module.css";
+
 .loginContainer {
   width: 100vw;
   height: 100vh;
@@ -8,14 +10,14 @@
 }
 
 .loginContainer h2 {
-  color: #46494c;
+  color: var(--outer-space);
 }
 
 .loginContent {
-  border: 1px solid #c5c3c6;
+  border: 1px solid var(--silver-sand);
   width: 500px;
   height: 500px;
-  background: #46494c;
+  background: var(--outer-space);
   box-shadow: #0000001a 0px 4px 6px -1px, #0000000f 0px 2px 4px -1px;
 }
 
@@ -28,7 +30,7 @@
 }
 
 .userIcon {
-  background: #c5c3c6;
+  background: var(--silver-sand);
   padding: 12px;
   border-radius: 50%;
 }
@@ -46,9 +48,9 @@
 
 .loginButton {
   padding: 12px 28px;
-  background: #c5c3c6;
+  background: var(--silver-sand);
   border: none;
-  color: #46494c;
+  color: var(--outer-space);
   font-size: 1rem;
   cursor: pointer;
 }
