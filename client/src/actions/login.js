@@ -29,7 +29,7 @@ export const loginRickMortySuccess = (user) => {
 };
 
 export const login = (formData) => (dispatch, getState) => {
-  const loginURL = `http://localhost:4000/login`;
+  const loginURL = `http://localhost:4000/api/auth`;
 
   dispatch(loginRickMorty());
   return fetch(loginURL, {

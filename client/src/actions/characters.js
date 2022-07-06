@@ -29,7 +29,7 @@ export const loadRickMortyCharacterSuccess = (characters) => {
 };
 
 export const loadCharacter = () => (dispatch, getState) => {
-  const characterURL = `http://localhost:4000/character`;
+  const characterURL = `http://localhost:4000/api/characters`;
 
   dispatch(loadRickMortyCharacter());
   return fetch(characterURL)

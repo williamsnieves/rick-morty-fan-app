@@ -33,7 +33,7 @@ export const addToFavoritesRickMortyCharacterSuccess = (characters) => {
 };
 
 export const addToFavorites = (characterData) => (dispatch, getState) => {
-  const favoritesURL = `http://localhost:4000/favorites`;
+  const favoritesURL = `http://localhost:4000/api/favorites`;
 
   dispatch(addToFavoritesRickMortyCharacter());
 
@@ -79,7 +79,7 @@ export const loadRickMortyFavoritesCharacterSuccess = (characters) => {
 };
 
 export const loadFavorites = () => (dispatch, getState) => {
-  const favoritesURL = `http://localhost:4000/favorites`;
+  const favoritesURL = `http://localhost:4000/api/favorites`;
 
   dispatch(loadRickMortyFavoritesCharacter());
   return fetch(favoritesURL)
