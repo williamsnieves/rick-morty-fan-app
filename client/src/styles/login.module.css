@@ -50,4 +50,11 @@
   border: none;
   color: #46494c;
   font-size: 1rem;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 480px) {
+  .loginContent {
+    width: 100%;
+  }
 }

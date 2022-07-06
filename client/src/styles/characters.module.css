@@ -5,5 +5,20 @@
   gap: 3%;
   justify-content: center;
   align-content: center;
-  margin: 12rem;
+  margin: 8rem 2rem;
+}
+
+@media only screen and (max-width: 820px) {
+  .characters {
+    grid-template-columns: repeat(2, 0fr);
+    margin: 13rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .characters {
+    grid-template-columns: repeat(1, 0fr);
+    gap: 4px;
+    margin-top: 16px;
+  }
 }
