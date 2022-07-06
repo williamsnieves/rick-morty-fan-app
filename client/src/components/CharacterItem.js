@@ -11,6 +11,7 @@ const CharacterItem = ({
   episode,
   favoritesLoading,
   favoriteAddedSucceeded,
+  favoritesIds,
   gender,
   image,
   id,
@@ -22,7 +23,7 @@ const CharacterItem = ({
   species,
 }) => {
   const [showModal, setShowModal] = useState(false);
-  const isFavoriteCharacter = true;
+  const isFavoriteCharacter = favoritesIds.includes(id);
 
   const statusIconClass = {
     alive: styles.characterstatusIconAlive,
@@ -45,6 +46,7 @@ const CharacterItem = ({
         <Modal onClose={onCloseCharacterDetail}>
           <CharacterDetail
             {...{
+              id,
               image,
               name,
               species,

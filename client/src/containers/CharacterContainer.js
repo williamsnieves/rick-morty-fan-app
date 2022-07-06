@@ -11,6 +11,7 @@ const CharacterContainer = connect(
     (character, favorites) => {
       return {
         characters: character.data,
+        favoritesIds: character.favoritesIds,
         favoritesLoading: favorites.isLoading,
         favoriteAddedSucceeded: favorites.succeeded,
       };

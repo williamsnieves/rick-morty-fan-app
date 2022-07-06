@@ -4,8 +4,9 @@ import CharacterItem from "./CharacterItem";
 import Header from "./common/Header";
 
 const Characters = ({
-  characters,
   addToFavorites,
+  characters,
+  favoritesIds,
   favoritesLoading,
   favoriteAddedSucceeded,
   loadCharacter,
@@ -30,6 +31,7 @@ const Characters = ({
               key={character.id}
               {...{
                 ...character,
+                favoritesIds,
                 favoritesLoading,
                 favoriteAddedSucceeded,
                 resetFavoriteAlert,
