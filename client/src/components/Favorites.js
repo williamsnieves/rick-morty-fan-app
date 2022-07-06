@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Item from "./common/Item";
 import styles from "../styles/favorites.module.css";
 import Header from "./common/Header";
+import ItemLayout from "./common/ItemLayout";
 
 const Favorites = ({ loadFavorites, favorites }) => {
   useEffect(() => {
@@ -9,13 +10,13 @@ const Favorites = ({ loadFavorites, favorites }) => {
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <Header
         pageTitle="Favorites"
         navigationName="Characters"
         navigationPage="/Characters"
       />
-      <div className={styles.favoritesContainer}>
+      <ItemLayout className={styles.favoritesContainer}>
         {favorites &&
           favorites.map(
             ({
@@ -25,8 +26,8 @@ const Favorites = ({ loadFavorites, favorites }) => {
               <Item key={id} {...{ image, location, name, status, species }} />
             )
           )}
-      </div>
-    </React.Fragment>
+      </ItemLayout>
+    </>
   );
 };
 

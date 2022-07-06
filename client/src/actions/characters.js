@@ -3,6 +3,7 @@ import {
   RICK_MORTY_CHARACTER_LOAD_FAILURE,
   RICK_MORTY_CHARACTER_LOAD_SUCCESS,
 } from "../actionTypes/characters";
+import { CHARACTERS_API_URL } from "../config/data";
 
 export const loadRickMortyCharacter = () => {
   return {
@@ -28,11 +29,9 @@ export const loadRickMortyCharacterSuccess = (characters) => {
   };
 };
 
-export const loadCharacter = () => (dispatch, getState) => {
-  const characterURL = `http://localhost:4000/api/characters`;
-
+export const loadCharacter = () => (dispatch) => {
   dispatch(loadRickMortyCharacter());
-  return fetch(characterURL)
+  return fetch(CHARACTERS_API_URL)
     .then((res) => res.json())
     .then((result) => dispatch(loadRickMortyCharacterSuccess(result)))
     .catch((error) => dispatch(loadRickMortyCharacterFailure(error)));

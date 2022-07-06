@@ -8,10 +8,11 @@ const Login = ({ login, user }) => {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+  const redirectPageAfterLogin = "/characters";
 
   useEffect(() => {
     if (user) {
-      navigate("/characters");
+      navigate(redirectPageAfterLogin);
     }
   }, [navigate, user]);
 

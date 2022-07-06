@@ -7,6 +7,7 @@ import {
   RICK_MORTY_CHARACTER_FAVORITES_LOAD_FAILURE,
   RICK_MORTY_CHARACTER_FAVORITES_LOAD_SUCCESS,
 } from "../actionTypes/favorites";
+import { FAVORITES_API_URL } from "../config/data";
 
 export const addToFavoritesRickMortyCharacter = () => {
   return {
@@ -32,12 +33,10 @@ export const addToFavoritesRickMortyCharacterSuccess = (characters) => {
   };
 };
 
-export const addToFavorites = (characterData) => (dispatch, getState) => {
-  const favoritesURL = `http://localhost:4000/api/favorites`;
-
+export const addToFavorites = (characterData) => (dispatch) => {
   dispatch(addToFavoritesRickMortyCharacter());
 
-  return fetch(favoritesURL, {
+  return fetch(FAVORITES_API_URL, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -79,10 +78,8 @@ export const loadRickMortyFavoritesCharacterSuccess = (characters) => {
 };
 
 export const loadFavorites = () => (dispatch, getState) => {
-  const favoritesURL = `http://localhost:4000/api/favorites`;
-
   dispatch(loadRickMortyFavoritesCharacter());
-  return fetch(favoritesURL)
+  return fetch(FAVORITES_API_URL)
     .then((res) => res.json())
     .then((result) => dispatch(loadRickMortyFavoritesCharacterSuccess(result)))
     .catch((error) => dispatch(loadRickMortyFavoritesCharacterFailure(error)));

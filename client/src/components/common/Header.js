@@ -1,4 +1,3 @@
-import React from "react";
 import NavigationButton from "./NavigationButton";
 import styles from "../../styles/header.module.css";
 

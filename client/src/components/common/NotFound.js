@@ -1,4 +1,3 @@
-import React from "react";
 import NotFound404 from "../../assets/gif/404.gif";
 import styles from "../../styles/not-found.module.css";
 

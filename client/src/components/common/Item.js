@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../../styles/item.module.css";
 
 const Item = ({ image, name, status, species }) => {
@@ -9,7 +8,7 @@ const Item = ({ image, name, status, species }) => {
   }[status && status.toLowerCase()];
 
   return (
-    <React.Fragment>
+    <>
       <div className={styles.item}>
         <div>
           <img className={styles.itemThumb} src={image} alt={name} />
@@ -26,7 +25,7 @@ const Item = ({ image, name, status, species }) => {
           </span>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

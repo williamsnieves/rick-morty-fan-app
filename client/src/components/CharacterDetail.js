@@ -1,18 +1,17 @@
-import React, { useEffect } from "react";
 import Toast from "./common/Toast";
 import bookmarkAdd from "../assets/icons/bookmark-add.svg";
 
 const CharacterDetail = ({
+  addToFavorites,
+  favoritesLoading,
+  favoriteAddedSucceeded,
+  gender,
   id,
   image,
+  location,
   name,
   species,
   status,
-  gender,
-  location,
-  favoritesLoading,
-  addToFavorites,
-  favoriteAddedSucceeded,
 }) => {
   return (
     <div>

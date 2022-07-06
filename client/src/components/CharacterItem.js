@@ -1,23 +1,25 @@
 import React, { useState } from "react";
-import styles from "../styles/character-item.module.css";
-import starFullIcon from "../assets/icons/star-full.svg";
 import Modal from "./common/Modal";
 import CharacterDetail from "./CharacterDetail";
+import styles from "../styles/character-item.module.css";
+import starFullIcon from "../assets/icons/star-full.svg";
+import ItemLayout from "./common/ItemLayout";
+import Item from "./common/Item";
 
 const CharacterItem = ({
-  id,
+  addToFavorites,
   episode,
+  favoritesLoading,
+  favoriteAddedSucceeded,
   gender,
   image,
+  id,
   location,
   name,
   origin,
+  resetFavoriteAlert,
   status,
   species,
-  favoritesLoading,
-  favoriteAddedSucceeded,
-  resetFavoriteAlert,
-  addToFavorites,
 }) => {
   const [showModal, setShowModal] = useState(false);
   const isFavoriteCharacter = true;
@@ -38,7 +40,7 @@ const CharacterItem = ({
   };
 
   return (
-    <React.Fragment>
+    <>
       {showModal ? (
         <Modal onClose={onCloseCharacterDetail}>
           <CharacterDetail
@@ -58,29 +60,18 @@ const CharacterItem = ({
         </Modal>
       ) : null}
 
-      <div className={styles.characterItem} onClick={openCharacterDetail}>
-        <div>
-          <img className={styles.characterItemThumb} src={image} alt={name} />
-        </div>
-        <div className={styles.characterItemInfo}>
-          <h2>{name}</h2>
-          <span className={styles.charactersStatus}>
-            <div
-              className={`${styles.characterstatusIcon} ${statusIconClass}`}
-            ></div>
-            <span
-              className={styles.charactersStatusText}
-            >{`${status} - ${species}`}</span>
-          </span>
-        </div>
-
+      <ItemLayout
+        className={styles.characterItem}
+        onClick={openCharacterDetail}
+      >
+        <Item {...{ image, name, species, status }} />
         <div className={styles.characterItemFavoriteIcon}>
           {isFavoriteCharacter ? (
             <img src={starFullIcon} width="20" height="20" alt="icon" />
           ) : null}
         </div>
-      </div>
-    </React.Fragment>
+      </ItemLayout>
+    </>
   );
 };
 

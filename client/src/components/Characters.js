@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import styles from "../styles/characters.module.css";
 import CharacterItem from "./CharacterItem";
 import Header from "./common/Header";
-import NavigationButton from "./common/NavigationButton";
 
 const Characters = ({
   characters,
@@ -17,7 +16,7 @@ const Characters = ({
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <Header
         pageTitle="Characters"
         navigationName="Favorites"
@@ -39,7 +38,7 @@ const Characters = ({
             />
           ))}
       </div>
-    </React.Fragment>
+    </>
   );
 };
 
