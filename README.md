@@ -43,7 +43,7 @@ The stack I have used in the server side is
 - node-fetch (this package to make request to external api)
 - cors (to avoid cross domain issue with request from local)
 
-The approach applied in the server side is base on MVC in this case the model was skiped becasue the database is a service and I think is not need it  to add, for time reasons I decided to not include some extra complexity adding other type of structures like microservices for example.
+The approach applied in the server side is based on MVC in this case the model was skiped becasue the database is a service and I think is not need it  to add, for time reasons I decided to not include some extra complexity adding other type of structures like microservices for example.
 
 ## Client
 
@@ -61,7 +61,7 @@ The stack I have used in the client side is:
 - prettier (to format code)
 - eslint (to detect some issue into the code rules)
 
-The client was creating using create-react-app to create the base skeleton of the app, the structure of the app was following the redux flow separating actions, reducers, store, containers and components trying to avoid DRY and trying keep a single responsabilities on each parts.
+The client has been created using create-react-app to create the base skeleton of the app, the structure of the app was following the redux flow separating actions, reducers, store, containers and components trying to avoid DRY and trying keep a single responsabilities on each parts.
 
 Notes to keep in mind:
 
@@ -69,3 +69,4 @@ Notes to keep in mind:
 - In the redux flow is pending to add immer to keep the state immutable
 - Add test to the server side
 - Maybe the UX could be better :)
+- Optimization could be part of a second iteration 
