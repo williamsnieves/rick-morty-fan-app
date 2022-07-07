@@ -6,12 +6,13 @@ Please be sure you are running you have the node version 16.15.1 on your local o
 
 I have build this mini app taking the advantage of yarn workspaces to handle mono repos
 
-- First to install all dependencies we need to run in the root of the project
+- First clone this repo
+- Then ¡ install all dependencies we need running in the root of the project next command:
 
 ```shell
   yarn
 ```
-- Second we need to run the next command
+- Mext we need to run the command:
 
 ```shell
   yarn start
@@ -63,7 +64,18 @@ The stack I have used in the client side is:
 
 The client has been created using create-react-app to create the base skeleton of the app, the structure of the app was following the redux flow separating actions, reducers, store, containers and components trying to avoid DRY and trying keep a single responsabilities on each parts.
 
-Notes to keep in mind:
+The collection in firebase for "favorites" is empty so you will have to add some characters to see the favorites list and to see the star icon in the character added
+
+## Login
+
+This is sensible data but for demo reason I could share it, I have added an user to login into the app becasue one of the pending features is to create users
+
+- user data:
+
+email: morty-test@test.com
+password: rickmorty
+
+## Notes to keep in mind:
 
 - The flow to handle errors is something to improve becasue it's partially touched
 - In the redux flow is pending to add immer to keep the state immutable
